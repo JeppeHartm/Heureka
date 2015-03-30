@@ -1,5 +1,5 @@
 ﻿%{ 
-open Proplog
+open Heureka.Proplog
 %}
 
 %token <string> ID

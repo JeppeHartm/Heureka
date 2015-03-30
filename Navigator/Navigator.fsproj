@@ -4,8 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>4f04203c-ff4f-4bff-b14d-33d0970b8b11</ProjectGuid>
+    <ProjectGuid>{4F04203C-FF4F-4BFF-B14D-33D0970B8B11}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Navigator</RootNamespace>
     <AssemblyName>Navigator</AssemblyName>
@@ -37,12 +36,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
+    <Reference Include="FSharp.Core">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.fs" />
@@ -59,4 +58,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\Heureka\Heureka.fsproj">
+      <Project>{548B559A-D824-4AE1-A54F-C0A02534F2E0}</Project>
+      <Name>Heureka</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

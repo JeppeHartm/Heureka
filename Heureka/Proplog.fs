@@ -1,4 +1,4 @@
-﻿module Proplog
+﻿module Heureka.Proplog
 
 type expression =
     |Conjunction of expression * expression
@@ -6,7 +6,7 @@ type expression =
     |Implication of expression * expression
     |Biimplication of expression * expression
     |Negation of expression
-    |Literal of string;;
+    |Literal of string
 
 let negate = function
     |Negation x -> x
@@ -16,7 +16,7 @@ let rec isClause = function
     | Disjunction (a,b) -> (isClause a) && (isClause b)
     | Negation (Literal a) -> true
     | Literal a -> true
-    | _ -> false;;
+    | _ -> false
 
 let rec isCNF = function
     | Conjunction (a,b) ->
@@ -27,7 +27,7 @@ let rec isCNF = function
         (isCNFsub a) && (isCNFsub b)
     | Literal _ -> true
     | Negation (Literal _) -> true
-    | _ -> false;;
+    | _ -> false
 
 let PL_Resolve set1 set2 =
     let res = Set.union set1 set2
@@ -38,7 +38,7 @@ let PL_Resolve set1 set2 =
             match List.exists (fun e -> h = negate e) output with
             | false -> PL_Resolve' t (h::output)
             | true -> PL_Resolve' t (List.filter (fun e -> not (h = negate e)) output)
-    Set.ofList (PL_Resolve' (Set.toList res) List.empty);;
+    Set.ofList (PL_Resolve' (Set.toList res) List.empty)
 
 let rec PrettyPrint = function
     | Conjunction (a,b) -> sprintf "(%O) ^ (%O)" (PrettyPrint a) (PrettyPrint b)

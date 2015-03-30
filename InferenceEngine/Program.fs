@@ -1,8 +1,7 @@
 ﻿open System.IO
 open System.Text
-open Microsoft.FSharp.Text.Lexing
 
-open Proplog
+open Heureka.Proplog
 open ProplogLexer
 open ProplogParser
 

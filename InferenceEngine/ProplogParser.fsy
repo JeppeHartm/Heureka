@@ -1,0 +1,42 @@
+﻿%{ 
+open Proplog
+%}
+
+%token <string> ID
+%token DISJ CONJ
+%token IMPL RIMPL BIIM
+%token NEG
+%token LPAR RPAR
+%token EOF
+
+%nonassoc LOWEST
+%nonassoc BIIM
+%right IMPL
+%left RIMPL 
+%nonassoc PREDIS
+%nonassoc PRECON
+%right NEG
+%nonassoc HIGHEST
+
+%start Main Exp Op
+%type <expression> Main Exp Op
+%%
+
+
+
+Main:
+    Exp EOF                              { $1 }
+   		    
+Exp:
+  | LPAR Exp RPAR	%prec HIGHEST		 { $2 }
+  | NEG Exp								 { Negation ($2) }
+  | ID								     { Literal ($1) }
+  | Op									 { $1 }
+
+Op:
+  | Exp CONJ Exp   %prec PRECON          { Conjunction ($1,$3) }
+  | Exp DISJ Exp   %prec PREDIS          { Disjunction ($1,$3) }
+  | Exp IMPL Exp					     { Implication ($1,$3) }
+  | Exp RIMPL Exp					     { Implication ($3,$1) }
+  | Exp BIIM Exp					     { Biimplication ($1,$3) }
+

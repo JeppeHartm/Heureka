@@ -1,17 +1,24 @@
 ﻿module Heureka.Search
-type Node(state) =
-    member n.state() = state
-type ChildNode(problem,node,action) 
 
+open Heureka.Problem
+    
+type Result =
+    | Soln of Node * int
+    | Fail of int
 let rec getSuccessors = function
     | _,_,[],output -> output
-    | problem,node,action::t, output -> getSuccessors problem node t (ChildNode(problem,node,action)::output)
-
+    | problem,node,action::t, output -> getSuccessors (problem,node,t,(ChildNode(problem,node,action)::output))
+     
 let rec RBFS problem node f_limit =
     match problem.Goal_Test(node.state()) with
-    | true -> return Solution(node)
+    | true -> Soln(node,f_limit)
     | false ->
-        let successors = getSuccessors problem node
-let Recursive_BFS = function
-    | problem -> RBFS problem Node(problem.Initial_State()) infinity //
+        let successors = getSuccessors(problem,node,problem.Actions(node),List.empty)
+        match successors.IsEmpty with
+        |true -> Fail f_limit
+        |false ->
+            
+
+let Recursive_BFS problem =
+    RBFS (problem,Node(problem.Initial_State()),infinity) //
 

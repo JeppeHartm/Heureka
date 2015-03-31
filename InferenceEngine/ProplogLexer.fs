@@ -1,4 +1,4 @@
-# 1 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 1 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
  
 module ProplogLexer
 
@@ -11,7 +11,7 @@ let keyword s =
     match s with
     | _           -> ID s  
 
-# 14 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 14 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
 let trans : uint16[] array = 
     [| 
    (* State 0 *)
@@ -56,67 +56,67 @@ and tokenize  (lexbuf : Microsoft.FSharp.Text.Lexing.LexBuffer<_>) = _fslex_toke
 and _fslex_tokenize  _fslex_state lexbuf =
   match _fslex_tables.Interpret(_fslex_state,lexbuf) with
   | 0 -> ( 
-# 27 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 27 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                                  tokenize lexbuf 
-# 61 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 61 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 1 -> ( 
-# 28 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 28 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                                  lexbuf.EndPos <- lexbuf.EndPos.NextLine; tokenize lexbuf 
-# 66 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 66 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 2 -> ( 
-# 29 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 29 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                                  LPAR  
-# 71 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 71 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 3 -> ( 
-# 30 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 30 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                                  RPAR  
-# 76 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 76 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 4 -> ( 
-# 31 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 31 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                                  DISJ  
-# 81 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 81 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 5 -> ( 
-# 32 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 32 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                                  CONJ 
-# 86 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 86 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 6 -> ( 
-# 33 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 33 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                             BIIM   
-# 91 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 91 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 7 -> ( 
-# 34 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 34 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                                  IMPL 
-# 96 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 96 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 8 -> ( 
-# 35 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 35 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                                  RIMPL 
-# 101 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 101 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 9 -> ( 
-# 36 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 36 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                            NEG 
-# 106 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 106 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 10 -> ( 
-# 37 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 37 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                                  keyword(Encoding.UTF8.GetString(lexbuf.Lexeme)) 
-# 111 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 111 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | 11 -> ( 
-# 38 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 38 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
                                  EOF 
-# 116 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 116 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"
           )
   | _ -> failwith "tokenize"
 
-# 39 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fsl"
+# 39 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fsl"
 
-# 3000000 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\InferenceEngine\InferenceEngine\ProplogLexer.fs"
+# 3000000 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogLexer.fs"

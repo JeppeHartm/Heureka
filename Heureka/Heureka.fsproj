@@ -29,7 +29,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Proplog.fs" />
-    <Compile Include="Script.fsx" />
+    <Compile Include="Problem.fs" />
     <Compile Include="Search.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" />

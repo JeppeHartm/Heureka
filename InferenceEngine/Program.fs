@@ -1,7 +1,7 @@
 ﻿open System.IO
 open System.Text
 
-open Heureka.Proplog
+open Proplog
 open ProplogLexer
 open ProplogParser
 

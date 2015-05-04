@@ -8,7 +8,6 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>InferenceEngine</RootNamespace>
     <AssemblyName>InferenceEngine</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <Name>InferenceEngine</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -75,10 +74,6 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
   <Import Project="..\packages\FsLexYacc.6.1.0\build\FsLexYacc.targets" Condition="Exists('..\packages\FsLexYacc.6.1.0\build\FsLexYacc.targets')" />
-  <PropertyGroup>
-    <PreBuildEvent>fslex "$(ProjectDir)ProplogLexer.fsl"
-fsyacc --module ProplogParser "$(ProjectDir)ProplogParser.fsy"</PreBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

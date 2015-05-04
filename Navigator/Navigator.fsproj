@@ -44,6 +44,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProblemSpecification.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
   </ItemGroup>

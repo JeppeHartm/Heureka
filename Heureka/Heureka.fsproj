@@ -28,7 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="Proplog.fs" />
     <Compile Include="Problem.fs" />
     <Compile Include="Search.fs" />
   </ItemGroup>

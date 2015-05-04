@@ -2,8 +2,8 @@
 open System.Text
 
 open Proplog
-open ProplogLexer
-open ProplogParser
+
+open Microsoft.FSharp.Text.Lexing
 
 let parseString (text:string) =
    let lexbuf = LexBuffer<_>.FromBytes(Encoding.UTF8.GetBytes(text))
@@ -13,8 +13,15 @@ let parseString (text:string) =
         let pos = lexbuf.EndPos
         printfn "Error near line %d, character %d\n" pos.Line pos.Column
         failwith "parser termination"
+let parseInput
+[<EntryPoint>]
+let main args = 
+    let input = List.map parseString (List.ofArray args)
+    match input with
+    | [] -> 0
+    | sentence::kb ->
+        let resolveProblem = new Problem<expression,expression->expression>()
 
-let _ = 
     printfn "Write a sentence in Propositional logic using the operators '-', 'v', '^', '<-', '->', '<->' and parentheses: "
     let e = parseString " a ^ b <-> -c -> d"
     //System.Console.ReadLine()

@@ -4,10 +4,11 @@ module ProplogParser
 open Microsoft.FSharp.Text.Lexing
 open Microsoft.FSharp.Text.Parsing.ParseHelpers
 # 1 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
- 
-open Heureka.Proplog
 
-# 10 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+
+open Proplog
+
+# 11 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
 // This type is the type of tokens accepted by the parser
 type token = 
   | EOF
@@ -133,7 +134,7 @@ let _fsyacc_reductionSymbolCounts = [|1us; 1us; 1us; 2us; 3us; 2us; 1us; 1us; 3u
 let _fsyacc_productionToNonTerminalTable = [|0us; 1us; 2us; 3us; 4us; 4us; 4us; 4us; 5us; 5us; 5us; 5us; 5us; |]
 let _fsyacc_immediateActions = [|65535us; 49152us; 65535us; 65535us; 65535us; 65535us; 65535us; 16387us; 65535us; 65535us; 16388us; 65535us; 65535us; 16390us; 16391us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |]
 let _fsyacc_reductions ()  =    [| 
-# 136 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 137 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
@@ -142,7 +143,7 @@ let _fsyacc_reductions ()  =    [|
                       raise (Microsoft.FSharp.Text.Parsing.Accept(Microsoft.FSharp.Core.Operators.box _1))
                    )
                  : '_startMain));
-# 145 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 146 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
@@ -151,7 +152,7 @@ let _fsyacc_reductions ()  =    [|
                       raise (Microsoft.FSharp.Text.Parsing.Accept(Microsoft.FSharp.Core.Operators.box _1))
                    )
                  : '_startExp));
-# 154 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 155 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
@@ -160,123 +161,123 @@ let _fsyacc_reductions ()  =    [|
                       raise (Microsoft.FSharp.Text.Parsing.Accept(Microsoft.FSharp.Core.Operators.box _1))
                    )
                  : '_startOp));
-# 163 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 164 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 28 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 29 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                                                                 _1 
                    )
-# 28 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 29 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                  : expression));
-# 174 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 175 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 31 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 32 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                                                          _2 
                    )
-# 31 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 32 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                  : expression));
-# 185 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 186 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 32 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 33 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                                            Negation (_2) 
                    )
-# 32 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 33 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                  : expression));
-# 196 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 197 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 33 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 34 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                                           Literal (_1) 
                    )
-# 33 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 34 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                  : expression));
-# 207 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 208 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 34 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 35 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                                        _1 
                    )
-# 34 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 35 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                  : expression));
-# 218 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 219 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 37 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 38 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                                                                 Conjunction (_1,_3) 
                    )
-# 37 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 38 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                  : expression));
-# 230 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 231 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 38 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 39 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                                                                 Disjunction (_1,_3) 
                    )
-# 38 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 39 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                  : expression));
-# 242 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 243 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 39 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 40 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                                                  Implication (_1,_3) 
                    )
-# 39 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 40 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                  : expression));
-# 254 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 255 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 40 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 41 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                                                   Implication (_3,_1) 
                    )
-# 40 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 41 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                  : expression));
-# 266 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 267 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 41 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 42 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                                                  Biimplication (_1,_3) 
                    )
-# 41 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
+# 42 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fsy"
                  : expression));
 |]
-# 279 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
+# 280 "G:\Users\Jeppe\Documents\Visual Studio 2012\Projects\Heureka\InferenceEngine\ProplogParser.fs"
 let tables () : Microsoft.FSharp.Text.Parsing.Tables<_> = 
   { reductions= _fsyacc_reductions ();
     endOfInputTag = _fsyacc_endOfInputTag;

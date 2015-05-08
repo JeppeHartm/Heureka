@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Navigator</RootNamespace>
     <AssemblyName>Navigator</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Name>Navigator</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -44,7 +44,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProblemSpecification.fs" />
+    <Compile Include="Navigator.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
   </ItemGroup>

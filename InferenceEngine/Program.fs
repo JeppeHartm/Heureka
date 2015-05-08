@@ -33,7 +33,8 @@ let createResolutionProblem = function
         new Problem<expression,expression->expression>(init,actions,trans_model,goal_test,step_cost,heuristic)
 [<EntryPoint>]
 let main args = 
-    let input = List.map parseString (List.ofArray args)
+    let input = List.map parseString (List.ofSeq(File.ReadLines(args.[0])))
+    //let input = List.map parseString (List.ofArray args)
     match input with
     | [] -> 0
     | sentence::kb ->

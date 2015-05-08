@@ -15,12 +15,12 @@ module Driver =
             Road(Point(75,75),"5",Point(100,100))]
         let problem = Problem.navigatorProblem generateMapData (Point(0,0)) (Point(100,100))
         let res = Heureka.Search.Recursive_BFS problem
-        let getList = function
+        let getList:Result<List<Node<_,_>>>->List<Node<_,_>> = function
             | Soln (l,_) -> l
             | Fail _ -> []
-        let rec getOutput = function
+        let rec getOutput:List<Node<_,_>>->string = function
             | [] -> "end"
-            | h::t -> sprintf "(%s) -> %s" (h.State) (getOutput t)
+            | h::t -> sprintf "(%s) -> %s" (h.State.ToString()) (getOutput t)
 
         printf "%O" (getOutput (getList res))
         ignore (System.Console.Read());

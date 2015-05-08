@@ -4,6 +4,9 @@ open System
 module Problem =
     type Road = Road of Coordinate * string * Coordinate
     and Coordinate = Point of int * int
+        with override x.ToString() = 
+                match x with
+                |Point(a,b) -> sprintf "(%i,%i)" a b
     let private is a b = 
         match a,b with
         |Point (a,b), Point (c,d) when a = c && b = d -> true

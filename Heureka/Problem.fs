@@ -1,5 +1,9 @@
 ﻿module Heureka.Problem
-
+(*
+ *The implementation of Node<'a,'b> where 'a denotes a state type and 'b an action type.
+ *It takes the parent and action arguments as options since the initial node doesn't have either.
+ *
+ *)
 type Node<'a,'b>(state:'a,parent:option<Node<'a,'b>>,action:option<'b>,cost:int) =
     let mutable _path_cost:int = 0
     let mutable _cost_est:int = 0

@@ -57,7 +57,7 @@ let rec private RBFS (problem:Problem<'a,'b>) (node:Node<'a,'b>) f_limit =
         |false -> 
             let successors = updateSuccessors(problem,node,successors,List.empty)
             let sorted = sortSuccessors(successors,[])
-            successorLoop(node,successors,f_limit)
+            successorLoop(node,sorted,f_limit)
 let Recursive_BFS (problem:Problem<'a,'b>) =
     RBFS problem (new Node<'a,'b>(problem.Initial_State)) Natural.Infinity
 

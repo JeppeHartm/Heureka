@@ -1,9 +1,10 @@
-breakfast if hotdrink juice food
-breakfast if hotdrink food
-hotdrink if coffee cream
-hotdrink if tea
-food if toast butter
-food if egg
+-breakfast
+breakfast v -hotdrink v -juice v -food
+breakfast v -hotdrink v -food
+hotdrink v -coffee v -cream
+hotdrink v -tea
+food v -toast v -butter
+food v -egg
 coffee
 tea
 toast

@@ -13,13 +13,14 @@ type Node<'a,'b>(state:'a,parent:option<Node<'a,'b>>,action:option<'b>,cost:int)
     member x.State = state
     member x.Parent = parent
     member x.Action = action
-    member x.Path_Cost = _path_cost
-    member x.Set_Path_Cost c = _path_cost<-c
-    member x.Cost_Est = _cost_est
-    member x.Set_Cost_Estimate c = _cost_est<-c
+    member x.g = _path_cost
+    member x.Set_g c = _path_cost<-c
+    member x.f = _cost_est
+    member x.Set_f c = _cost_est<-c
     new (state) = Node<'a,'b>(state,None,None,0)
 
-type Problem<'a,'b> (init:'a,actions:'a -> List<'b>,trans_model:'a*'b -> 'a,goal_test:'a->bool,step_cost:'a*'b -> int,heuristic:'a -> int) =
+type Problem<'a,'b> (init:'a,actions:'a -> List<'b>,trans_model:'a*'b -> 'a,
+                        goal_test:'a->bool,step_cost:'a*'b -> int,heuristic:'a -> int) =
     member x.Initial_State = init
     member x.Actions = actions
     member x.Result = trans_model
@@ -35,4 +36,4 @@ and Natural =
     | Infinity
 
 let ChildNode (problem:Problem<'a,'b>) (node:Node<'a,'b>) (action:'b) = 
-    new Node<'a,'b>(problem.Result(node.State,action),Some node,Some action,node.Path_Cost + problem.Step_Cost(node.State,action))
+    new Node<'a,'b>(problem.Result(node.State,action),Some node,Some action,node.g + problem.Step_Cost(node.State,action))

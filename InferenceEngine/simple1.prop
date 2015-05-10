@@ -1,5 +1,5 @@
-a if b c
-b if b
-b if c d
+a v -b v -c
+b v -b
+b v -c v -d
 c
 d

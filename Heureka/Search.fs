@@ -20,30 +20,30 @@ let private max: int*int->int = function
 let rec private updateSuccessors:Problem<'a,'c>*Node<'a,'b>*List<Node<'a,'b>>*List<Node<'a,'b>> -> List<Node<'a,'b>> = function
     | _,_,[],output -> output
     | problem,node,s::rest,output -> 
-        s.Set_Cost_Estimate(max((problem.H(s.State)+s.Path_Cost),node.Cost_Est))
+        s.Set_f(max((problem.H(s.State)+s.g),node.f))
         updateSuccessors(problem,node,rest,s::output)
 let rec private sortSuccessor : Node<_,_>*List<Node<_,_>>->List<Node<_,_>> = function
     | e,[] -> [e]
-    | e,h::t when e.Cost_Est < h.Cost_Est -> e::h::t
+    | e,h::t when e.f < h.f -> e::h::t
     | e,h::t -> h::sortSuccessor(e,t)
 let rec private sortSuccessors = function
     | [],output -> output
     | e::t,output -> sortSuccessors(t,sortSuccessor(e,output))
 let private gt: Node<_,_>*Natural -> bool = function
     | _,Infinity -> false
-    | a,Number x -> a.Cost_Est > x
+    | a,Number x -> a.f > x
 let private fmin = function
     | Number a, Number b -> Number (min a b)
     | _ -> Infinity
 let rec private RBFS (problem:Problem<'a,'b>) (node:Node<'a,'b>) f_limit =
     let rec successorLoop = function
     | _,[], f_limit -> Fail f_limit
-    | _,a::_, f_limit when gt(a,f_limit) -> Fail (Number (a.Cost_Est)) 
+    | _,a::_, f_limit when gt(a,f_limit) -> Fail (Number (a.f)) 
     | node,a::t, f_limit ->
         let alt = 
             match t with
             | [] -> f_limit
-            | a::tt -> Number (a.Cost_Est)
+            | a::tt -> Number (a.f)
         let res = RBFS problem a (fmin(f_limit,alt))
         match res with
         | Soln (l,f) -> Soln (node::l,f)
@@ -60,4 +60,3 @@ let rec private RBFS (problem:Problem<'a,'b>) (node:Node<'a,'b>) f_limit =
             successorLoop(node,sorted,f_limit)
 let Recursive_BFS (problem:Problem<'a,'b>) =
     RBFS problem (new Node<'a,'b>(problem.Initial_State)) Natural.Infinity
-

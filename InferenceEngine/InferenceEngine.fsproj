@@ -53,18 +53,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Proplog.fs" />
-    <None Include="ProplogLexer.fsl" />
-    <None Include="ProplogParser.fsy" />
-    <Compile Include="ProplogParser.fs">
-      <Link>ProplogParser.fs</Link>
-    </Compile>
-    <Compile Include="ProplogLexer.fs">
-      <Link>ProplogLexer.fs</Link>
-    </Compile>
     <Compile Include="Program.fs" />
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="InstallationDummyFile.txt" />
+    <None Include="breakfast.prop">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="simple1.prop">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="simple2.prop">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="trial.prop">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

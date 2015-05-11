@@ -3,17 +3,22 @@
 namespace Navigator
 open Heureka.Search
 open Heureka.Problem
+open System.IO
 open Problem
 module Driver =
+    let parseLine (line:string) =
+        let content = line.Split([|' '|], System.StringSplitOptions.RemoveEmptyEntries)
+        let name = content.[2]
+        let p1 = Point(System.Convert.ToInt32(content.[0]),System.Convert.ToInt32(content.[1]))
+        let p2 = Point(System.Convert.ToInt32(content.[3]),System.Convert.ToInt32(content.[4]))
+        Road(p1,name,p2)
+    let readSample file =
+        let lines = File.ReadAllLines(file)
+        List.ofArray (Array.map parseLine lines)
     [<EntryPoint>]
     let main argv = 
-        let generateMapData = [
-            Road(Point(0,0),"1",Point(100,0));
-            Road(Point(100,0),"2",Point(100,100));
-            Road(Point(0,0),"3",Point(25,25));
-            Road(Point(25,25),"4",Point(75,75));
-            Road(Point(75,75),"5",Point(100,100))]
-        let problem = Problem.navigatorProblem generateMapData (Point(0,0)) (Point(100,100))
+        let generateMapData = readSample "copenhagentest.navi"
+        let problem = Problem.navigatorProblem generateMapData (Point(10,70)) (Point(80,70))
         let res = Heureka.Search.Recursive_BFS problem
         let getList:Result<List<Node<_,_>>>->List<Node<_,_>> = function
             | Soln (l,_) -> l

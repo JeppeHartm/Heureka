@@ -47,7 +47,9 @@
     <Compile Include="Navigator.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
-    <None Include="copenhagentest.navi" />
+    <None Include="copenhagentest.navi">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

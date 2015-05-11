@@ -1,7 +1,9 @@
 ﻿namespace Navigator
 open Heureka.Problem
 open System
+open System.IO
 module Problem =
+    
     type Road = Road of Coordinate * string * Coordinate
     and Coordinate = Point of int * int
         with override x.ToString() = 
@@ -14,6 +16,7 @@ module Problem =
     let private chofun x = function
         |Road (a,b,c) when a = x -> Some(Road(a,b,c))
         |_ -> None
+
     let navigatorProblem (data:List<Road>) (a:Coordinate) (b:Coordinate) = 
         let init = a
         let goal_test = is b

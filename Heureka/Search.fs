@@ -2,6 +2,7 @@
 open Heureka.Problem
 
 
+
 (*
  *Recursive Best First Search for the Heureka project for the introductory course in artificial intelligence
  *at the Technical University of Denmark. The algorithm is a functional adaptation of the RBFS algorithm found
@@ -34,6 +35,8 @@ let private gt: Node<_,_>*Natural -> bool = function
     | a,Number x -> a.f > x
 let private fmin = function
     | Number a, Number b -> Number (min a b)
+    | Number a, _ -> Number a
+    | _ , Number b -> Number b
     | _ -> Infinity
 let rec private RBFS (problem:Problem<'a,'b>) (node:Node<'a,'b>) f_limit =
     let rec successorLoop = function
@@ -60,3 +63,31 @@ let rec private RBFS (problem:Problem<'a,'b>) (node:Node<'a,'b>) f_limit =
             successorLoop(node,sorted,f_limit)
 let Recursive_BFS (problem:Problem<'a,'b>) =
     RBFS problem (new Node<'a,'b>(problem.Initial_State)) Natural.Infinity
+
+
+        
+(*let Astar (problem:Problem<'a,'b>) =
+    let node = (new Node<'a,'b>(problem.Initial_State))
+    let frontier = (new System.Collections.Generic.KeyValuePair<int,'a>(node.f,node.State))::[]
+    let explored = set []
+    let rec Astar' (problem:Problem<'a,'b>) (explored:Set<'a>) (frontier:List<System.Collections.Generic.KeyValuePair<int,'a>>) =
+        match List.sortBy (fun (kvp:System.Collections.Generic.KeyValuePair<int,'a>) -> kvp.Key) frontier with
+        | [] -> Fail Infinity
+        | kvp::newFrontier ->
+            let st = new Node<'a,'b>(kvp.Value;
+            if (problem.Goal_Test(st)) then (Soln(node,Infinity)) else
+            let newExplored = Set.add (st) explored
+            let flist = new System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int,'a>>();
+            flist.AddRange(newFrontier)
+            List.iter (fun a ->
+                        let child = ChildNode problem node a
+                        if not(List.exists (fun (kvp:System.Collections.Generic.KeyValuePair<int,'a>) -> kvp.Value = child.State) newFrontier ) && not(explored.Contains child.State) then
+                            flist.Add(new System.Collections.Generic.KeyValuePair<int,'a>(child.f,child.State))
+                        else if (List.exists (fun (kvp:System.Collections.Generic.KeyValuePair<int,'a>) -> kvp.Value = child.State) newFrontier ) && List.forall (fun (kvp:System.Collections.Generic.KeyValuePair<int,'a>) -> not(kvp.Value=child.State) || (kvp.Key> (child.f))  ) newFrontier then
+                            flist.RemoveAt(flist.FindIndex(System.Predicate((fun (kvp:System.Collections.Generic.KeyValuePair<int,'a>) -> kvp.Value = child.State))))
+                            flist.Add(new System.Collections.Generic.KeyValuePair<int,'a>(child.f,child.State))
+                        ) (problem.Actions(node.State))
+            Astar' problem newExplored (List.ofSeq flist)        
+    Astar' problem explored frontier*)
+
+    
